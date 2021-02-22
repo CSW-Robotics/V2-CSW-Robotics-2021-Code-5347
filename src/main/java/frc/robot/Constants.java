@@ -27,4 +27,5 @@ public final class Constants {
     public static int rightWheels2Port = 8;
     public static int ctrlPort = 0;
     public static int joyPort = 0;
+    public static int intakeMotorPort = 8;
 }
