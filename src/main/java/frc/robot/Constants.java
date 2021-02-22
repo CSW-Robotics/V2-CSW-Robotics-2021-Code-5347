@@ -18,13 +18,14 @@ package frc.robot;
 public final class Constants {
     public static int leftFlyWheelPort = 1;
     public static int rightFlyWheelPort = 4;
-    public static int rollerPort = 6;
+    public static int rollerPort = 3;
     public static int elevatorPort = 10;
     public static int spinBeltsPort = 0;
     public static int leftWheels1Port = 9;
     public static int leftWheels2Port = 7;
     public static int rightWheels1Port = 5;
     public static int rightWheels2Port = 8;
+    public static int beaverTailPort = 6;
     public static int ctrlPort = 0;
     public static int joyPort = 0;
 }
