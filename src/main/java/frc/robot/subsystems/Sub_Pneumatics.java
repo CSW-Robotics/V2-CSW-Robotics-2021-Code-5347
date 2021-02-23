@@ -16,7 +16,7 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 /** Add your docs here. */
 public class Sub_Pneumatics extends SubsystemBase {
   // sets talon port for Pneumatics
-  private final DoubleSolenoid beaverTail = new DoubleSolenoid(1,2,Constants.beaverTailPort);
+  private final DoubleSolenoid beaverTail = new DoubleSolenoid(Constants.compressorPort,Constants.solLeft, Constants.solRight);
 
 //extend the intake
 public void extend(){
