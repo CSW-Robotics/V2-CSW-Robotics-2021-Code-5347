@@ -9,13 +9,13 @@ package frc.robot.commands;
 import frc.robot.subsystems.Sub_Elevator;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class Cmd_Elevator extends CommandBase {
+public class Cmd_ElevatorUp extends CommandBase {
 
   private final Sub_Elevator m_Elevator;
   /**
    * Creates a new Cmd_Elevator.
    */
-  public Cmd_Elevator(Sub_Elevator subsystem) {
+  public Cmd_ElevatorUp(Sub_Elevator subsystem) {
     m_Elevator = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_Elevator);

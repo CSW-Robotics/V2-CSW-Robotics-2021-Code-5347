@@ -21,14 +21,14 @@ import frc.robot.subsystems.Sub_Drivetrain;
 import frc.robot.subsystems.Sub_CenteringRoller;
 import frc.robot.subsystems.Sub_Belts;
 import frc.robot.commands.Cmd_Shooter;
-import frc.robot.commands.Cmd_Elevator;
+import frc.robot.commands.Cmd_ElevatorUp;
 import frc.robot.commands.Cmd_Intake;
 //import frc.robot.commands.Cmd_Drivetrain;
 import frc.robot.commands.Cmd_Belts;
 import frc.robot.commands.Cmd_CenteringRoller;
 //import frc.robot.commands.Cmd_Drivetrain;
 import frc.robot.subsystems.Sub_Intake;
-import frc.robot.commands.Cmd_Intake;
+import frc.robot.commands.Cmd_ElevatorDown;
 
 
 
@@ -76,10 +76,12 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     new JoystickButton(m_controller, 1).whileHeld(new Cmd_Shooter(m_shooter));
-    new JoystickButton(m_controller, 2).whileHeld(new Cmd_Elevator(m_elevator));
+    new JoystickButton(m_controller, 2).whileHeld(new Cmd_ElevatorUp(m_elevator));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
     new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
     new JoystickButton(m_controller, 5).whileHeld(new Cmd_Intake(m_intake));
+    new JoystickButton(m_controller, 6).whileHeld(new Cmd_ElevatorDown(m_elevator));
+
     
   }
 
