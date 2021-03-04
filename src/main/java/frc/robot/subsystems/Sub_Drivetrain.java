@@ -33,7 +33,7 @@ public class Sub_Drivetrain extends SubsystemBase {
   private final DifferentialDrive TankDrive = new DifferentialDrive(leftSpeConGru,rightSpeConGru);
 
   public void drivingNow(double forwardSpeed, double rotationRate){
-    TankDrive.arcadeDrive(forwardSpeed, rotationRate);
+    TankDrive.arcadeDrive((-1 * forwardSpeed), rotationRate);
   }
 
   public Sub_Drivetrain() {

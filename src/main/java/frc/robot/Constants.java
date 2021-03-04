@@ -16,19 +16,19 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static int leftFlyWheelPort = 1;
-    public static int rightFlyWheelPort = 4;
-    public static int rollerPort = 3;
-    public static int elevatorPort = 10;
+    public static int leftFlyWheelPort = 2;
+    public static int rightFlyWheelPort = 1;
+    public static int rollerPort = 7;
+    public static int elevatorPort = 8;
     public static int spinBeltsPort = 0;
-    public static int leftWheels1Port = 9;
-    public static int leftWheels2Port = 7;
-    public static int rightWheels1Port = 5;
-    public static int rightWheels2Port = 8;
+    public static int leftWheels1Port = 10;
+    public static int leftWheels2Port = 9;
+    public static int rightWheels1Port = 3;
+    public static int rightWheels2Port = 4;
     public static int beaverTailPort = 6;
     public static int ctrlPort = 0;
     public static int joyPort = 0;
-    public static int intakeMotorPort = 8;
+    public static int intakeMotorPort = 6;
     public static int solLeft = 0;
     public static int solRight = 1;
     public static int compressorPort = 1;

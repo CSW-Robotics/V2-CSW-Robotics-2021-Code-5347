@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.XboxController.Axis;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 //import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Sub_Shooter;
@@ -62,7 +63,8 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    m_drivetrain.drivingNow(m_drivestick.getRawAxis(1), m_drivestick.getRawAxis(5));
+    m_drivetrain.setDefaultCommand(new RunCommand(()-> m_drivetrain.drivingNow(m_drivestick.getRawAxis(1), m_drivestick.getRawAxis(2)), m_drivetrain));
+    
     // Configure the button bindings
     
     configureButtonBindings();
@@ -75,12 +77,12 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(m_controller, 1).whileHeld(new Cmd_Shooter(m_shooter));
-    new JoystickButton(m_controller, 2).whileHeld(new Cmd_ElevatorUp(m_elevator));
-    new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
-    new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
-    new JoystickButton(m_controller, 5).whileHeld(new Cmd_Intake(m_intake));
-    new JoystickButton(m_controller, 6).whileHeld(new Cmd_ElevatorDown(m_elevator));
+    new JoystickButton(m_controller, 6).whileHeld(new Cmd_Shooter(m_shooter));
+    new JoystickButton(m_controller, 5).whileHeld(new Cmd_ElevatorUp(m_elevator));
+    new JoystickButton(m_controller, 8).whileHeld(new Cmd_Belts(m_belts));
+    new JoystickButton(m_controller, 3).whileHeld(new Cmd_CenteringRoller(m_centerroller));
+    new JoystickButton(m_controller, 2).whileHeld(new Cmd_Intake(m_intake));
+    new JoystickButton(m_controller, 7).whileHeld(new Cmd_ElevatorDown(m_elevator));
 
     
   }

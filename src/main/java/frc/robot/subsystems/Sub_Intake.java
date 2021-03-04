@@ -19,7 +19,7 @@ public class Sub_Intake extends SubsystemBase {
 
   }
 public void spin() {
-  intakeMotor.set(ControlMode.PercentOutput, .3);
+  intakeMotor.set(ControlMode.PercentOutput, -0.5);
 }
 
 

@@ -26,8 +26,8 @@ public void stop() {
 }
   //Starts motor (sets speed to 90%)
 public void spinUp() {
-  leftFlyWheel.set(ControlMode.PercentOutput, 0.9);
-  rightFlyWheel.set(ControlMode.PercentOutput, 0.9);
+  leftFlyWheel.set(ControlMode.PercentOutput, -1);
+  rightFlyWheel.set(ControlMode.PercentOutput, -1);
 }
 
   public Sub_Shooter() {
