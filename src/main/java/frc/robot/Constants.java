@@ -29,7 +29,9 @@ public final class Constants {
     public static int ctrlPort = 0;
     public static int joyPort = 0;
     public static int intakeMotorPort = 6;
-    public static int solLeft = 0;
-    public static int solRight = 1;
-    public static int compressorPort = 1;
+    public static int solLeft = 2;
+    public static int solRight = 4;
+    public static int PCMID = 0;
+
+
 }

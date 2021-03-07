@@ -29,8 +29,10 @@ import frc.robot.commands.Cmd_Belts;
 import frc.robot.commands.Cmd_CenteringRoller;
 //import frc.robot.commands.Cmd_Drivetrain;
 import frc.robot.subsystems.Sub_Intake;
+import frc.robot.subsystems.Sub_Pneumatics;
 import frc.robot.commands.Cmd_ElevatorDown;
-
+import frc.robot.commands.Cmd_PneumaticsExtend;
+import frc.robot.commands.Cmd_PneumaticsRetract;
 
 
 /**
@@ -51,6 +53,7 @@ public class RobotContainer {
   private final Sub_Belts m_belts = new Sub_Belts();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_ExampleSubsystem);
   private final Sub_Intake m_intake = new Sub_Intake();
+  private final Sub_Pneumatics m_pneumatics = new Sub_Pneumatics();
   
 
 
