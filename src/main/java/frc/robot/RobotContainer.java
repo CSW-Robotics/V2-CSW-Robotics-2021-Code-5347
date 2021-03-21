@@ -91,6 +91,8 @@ public class RobotContainer {
     new JoystickButton(m_controller, 7).whileHeld(new Cmd_ElevatorDown(m_elevator));
     new JoystickButton(m_controller, 4).whileHeld(new Cmd_PID_Align(m_networkTables, m_drivetrain));
 
+    new JoystickButton(m_controller, 10).whileHeld(new Cmd_PneumaticsExtend(m_pneumatics));
+    new JoystickButton(m_controller, 9).whileHeld(new Cmd_PneumaticsRetract(m_pneumatics));
     
   }
 
