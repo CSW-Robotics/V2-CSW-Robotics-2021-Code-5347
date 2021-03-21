@@ -33,6 +33,8 @@ import frc.robot.subsystems.Sub_Pneumatics;
 import frc.robot.commands.Cmd_ElevatorDown;
 import frc.robot.commands.Cmd_PneumaticsExtend;
 import frc.robot.commands.Cmd_PneumaticsRetract;
+import frc.robot.subsystems.Sub_NetworkTables;
+import frc.robot.commands.Cmd_PID_Align;
 
 
 /**
@@ -54,6 +56,7 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_ExampleSubsystem);
   private final Sub_Intake m_intake = new Sub_Intake();
   private final Sub_Pneumatics m_pneumatics = new Sub_Pneumatics();
+  private final Sub_NetworkTables m_networkTables = new Sub_NetworkTables();
   
 
 
@@ -86,6 +89,7 @@ public class RobotContainer {
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_CenteringRoller(m_centerroller));
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Intake(m_intake));
     new JoystickButton(m_controller, 7).whileHeld(new Cmd_ElevatorDown(m_elevator));
+    new JoystickButton(m_controller, 4).whileHeld(new Cmd_PID_Align(m_networkTables, m_drivetrain));
 
     
   }
