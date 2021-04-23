@@ -35,6 +35,8 @@ import frc.robot.commands.Cmd_PneumaticsExtend;
 import frc.robot.commands.Cmd_PneumaticsRetract;
 import frc.robot.subsystems.Sub_NetworkTables;
 import frc.robot.commands.Cmd_PID_Align;
+import frc.robot.subsystems.Sub_Pneumatics_Right;
+import frc.robot.commands.Cmd_NetworkTables;
 
 
 /**
@@ -57,6 +59,7 @@ public class RobotContainer {
   private final Sub_Intake m_intake = new Sub_Intake();
   private final Sub_Pneumatics m_pneumatics = new Sub_Pneumatics();
   private final Sub_NetworkTables m_networkTables = new Sub_NetworkTables();
+  private final Sub_Pneumatics_Right m_pneumatics_right = new Sub_Pneumatics_Right();
   
 
 
@@ -70,9 +73,12 @@ public class RobotContainer {
    */
   public RobotContainer() {
     m_drivetrain.setDefaultCommand(new RunCommand(()-> m_drivetrain.drivingNow(m_drivestick.getRawAxis(1), m_drivestick.getRawAxis(2)), m_drivetrain));
-    
+    //m_networkTables.setDefaultCommand(new RunCommand(()-> m_networkTables.Tableinit()));
     // Configure the button bindings
     
+   //m_networkTables.setDefaultCommand(new RunCommand(() -> m_networkTables.Yaw()));
+   //m_networkTables.setDefaultCommand(new  RunCommand(() -> m_networkTables.Pitch()));
+
     configureButtonBindings();
   }
 
@@ -84,17 +90,19 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     new JoystickButton(m_controller, 6).whileHeld(new Cmd_Shooter(m_shooter));
-    new JoystickButton(m_controller, 5).whileHeld(new Cmd_ElevatorUp(m_elevator));
+    //new JoystickButton(m_controller, 5).whileHeld(new Cmd_ElevatorUp(m_elevator));
     new JoystickButton(m_controller, 8).whileHeld(new Cmd_Belts(m_belts));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_CenteringRoller(m_centerroller));
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Intake(m_intake));
-    new JoystickButton(m_controller, 7).whileHeld(new Cmd_ElevatorDown(m_elevator));
+    //new JoystickButton(m_controller, 7).whileHeld(new Cmd_ElevatorDown(m_elevator));
     new JoystickButton(m_controller, 4).whileHeld(new Cmd_PID_Align(m_networkTables, m_drivetrain));
 
-    new JoystickButton(m_controller, 10).whileHeld(new Cmd_PneumaticsExtend(m_pneumatics));
-    new JoystickButton(m_controller, 9).whileHeld(new Cmd_PneumaticsRetract(m_pneumatics));
+    new JoystickButton(m_controller, 10).whileHeld(new Cmd_PneumaticsExtend(m_pneumatics, m_pneumatics_right));
+    new JoystickButton(m_controller, 9).whileHeld(new Cmd_PneumaticsRetract(m_pneumatics, m_pneumatics_right));
+    new JoystickButton(m_controller, 7).whileHeld(new Cmd_NetworkTables(m_networkTables));
+    //new JoystickButton(m_controller, 19).whileActiveContinuous(new Cmd_NetworkTables(m_networkTables), interruptible)
     
-  }
+    }
 
 
   /**

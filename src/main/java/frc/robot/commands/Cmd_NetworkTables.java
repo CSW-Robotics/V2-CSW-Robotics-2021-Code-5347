@@ -3,29 +3,29 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
-import frc.robot.subsystems.Sub_Pneumatics;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Sub_Pneumatics_Right;
+import frc.robot.subsystems.Sub_NetworkTables;
 
-public class Cmd_PneumaticsExtend extends CommandBase {
-  /** Creates a new Cmd_Pneumatics. */
-  private final Sub_Pneumatics m_pneumatics;
-  private final Sub_Pneumatics_Right m_pneumatics_right;
+public class Cmd_NetworkTables extends CommandBase {
 
-  public Cmd_PneumaticsExtend(Sub_Pneumatics subsystem, Sub_Pneumatics_Right subsystem2) {
-    m_pneumatics = subsystem;
-    m_pneumatics_right = subsystem2;
-    addRequirements(m_pneumatics);
-    addRequirements(m_pneumatics_right);
+  private final Sub_NetworkTables m_NetworkTables;
+  /** Creates a new Cmd_NetworkTables. */
+  public Cmd_NetworkTables(Sub_NetworkTables subsystem) {
+    m_NetworkTables = subsystem;
+    addRequirements(m_NetworkTables);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  m_pneumatics.extend();
-  m_pneumatics_right.extend();
+    
+    m_NetworkTables.Tableinit();
+    m_NetworkTables.Yaw();
+    m_NetworkTables.Pitch();
   }
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {}

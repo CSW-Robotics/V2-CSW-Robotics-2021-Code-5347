@@ -32,6 +32,8 @@ public final class Constants {
     public static int solLeft = 6;
     public static int solRight = 7;
     public static int PCMID = 0;
+    public static int sol2Left = 5;
+    public static int sol2Right = 4;
 
 
 }

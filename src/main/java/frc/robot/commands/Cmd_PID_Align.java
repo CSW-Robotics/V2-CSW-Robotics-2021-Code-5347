@@ -6,6 +6,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.subsystems.Sub_NetworkTables;
@@ -43,8 +44,8 @@ public class Cmd_PID_Align extends CommandBase {
     double pitchValue = m_NetworkTables.Pitch();
     double yawValue = m_NetworkTables.Yaw();
 
-    double KpRot=-0.1;
-    double KpDist=-0.1;
+    double KpRot=-0.4;
+    double KpDist=-0.4;
 
     //Deadzone is necessary because the robot can only get so accurate and cannot be pefectly head on the target
     double angleTolerance=5;//Deadzone for the angle control loop
@@ -64,6 +65,12 @@ public class Cmd_PID_Align extends CommandBase {
     */
     double rotationAjust = 0;
     double distanceAjust = 0;
+
+    SmartDashboard.putNumber("one", 1);
+    SmartDashboard.putNumber("four", 4);
+    SmartDashboard.putNumber("rotajust", rotationAjust);
+    SmartDashboard.putNumber("disajust", distanceAjust);
+    
 
     rotationError=yawValue;
     distanceError=pitchValue;

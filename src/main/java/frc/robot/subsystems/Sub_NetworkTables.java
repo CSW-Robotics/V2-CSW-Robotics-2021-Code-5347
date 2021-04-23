@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Sub_NetworkTables extends SubsystemBase {
   /** Creates a new Sub_NetworkTables. */
@@ -24,15 +25,16 @@ public class Sub_NetworkTables extends SubsystemBase {
   public void Tableinit(){
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
     NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
-    NetworkTableEntry yaw = table.getEntry("yaw");
-    NetworkTableEntry pitch = table.getEntry("pitch");
+    NetworkTableEntry yaw = table.getEntry("targetYaw");
+    NetworkTableEntry pitch = table.getEntry("targetPitch");
   }
   public double Yaw(){
     double d_yaw;
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
     NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
-    NetworkTableEntry yaw = table.getEntry("yaw");
+    NetworkTableEntry yaw = table.getEntry("targetYaw");
     d_yaw = yaw.getDouble(0.0);
+    SmartDashboard.putNumber("ywa", d_yaw);
     return d_yaw;
   }
 
@@ -40,8 +42,9 @@ public class Sub_NetworkTables extends SubsystemBase {
     double d_pitch;
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
     NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
-    NetworkTableEntry pitch = table.getEntry("pitch");
+    NetworkTableEntry pitch = table.getEntry("targetPitch");
     d_pitch = pitch.getDouble(0.0);
+    SmartDashboard.putNumber("ptch", d_pitch);
     return d_pitch;
   }
 
@@ -49,5 +52,12 @@ public class Sub_NetworkTables extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    double p_pitch;
+    NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
+    NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
+    NetworkTableEntry pitch = table.getEntry("targetPitch");
+    p_pitch = pitch.getDouble(0.0);
+    SmartDashboard.putNumber("pitchPeriodic", p_pitch);
+    
   }
 }
