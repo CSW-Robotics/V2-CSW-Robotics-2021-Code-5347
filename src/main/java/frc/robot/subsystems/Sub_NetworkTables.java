@@ -32,7 +32,7 @@ public class Sub_NetworkTables extends SubsystemBase {
     double d_yaw;
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
     NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
-    NetworkTableEntry yaw = table.getEntry("targetYaw");
+    yaw = table.getEntry("targetYaw");
     d_yaw = yaw.getDouble(0.0);
     SmartDashboard.putNumber("ywa", d_yaw);
     return d_yaw;
@@ -42,7 +42,7 @@ public class Sub_NetworkTables extends SubsystemBase {
     double d_pitch;
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
     NetworkTable table = Visiontable.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
-    NetworkTableEntry pitch = table.getEntry("targetPitch");
+    pitch = table.getEntry("targetPitch");
     d_pitch = pitch.getDouble(0.0);
     SmartDashboard.putNumber("ptch", d_pitch);
     return d_pitch;
