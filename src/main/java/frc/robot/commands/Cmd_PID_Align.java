@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.subsystems.Sub_NetworkTables;
 import frc.robot.subsystems.Sub_Drivetrain;
+import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Cmd_PID_Align extends CommandBase {
   /** Creates a new Cmd_PID_Align. */
@@ -18,13 +19,18 @@ public class Cmd_PID_Align extends CommandBase {
   private final Sub_NetworkTables m_NetworkTables;
   private final Sub_Drivetrain m_DriveTrain;
 
+
   public Cmd_PID_Align(Sub_NetworkTables subsystemN, Sub_Drivetrain subsystemD) {
+  
   
   m_NetworkTables = subsystemN;
   addRequirements(m_NetworkTables);
 
   m_DriveTrain = subsystemD;
   addRequirements(m_DriveTrain);
+
+  
+
     // Use addRequirements() here to declare subsystem dependencies.
   }
   
@@ -40,9 +46,11 @@ public class Cmd_PID_Align extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    double pitchValue = m_NetworkTables.Pitch();
-    double yawValue = m_NetworkTables.Yaw();
+    
+    
+    double newYawValue = m_NetworkTables.p_pitch;
+    double newPitchValue = m_NetworkTables.p_yaw;
+    
 
     double KpRot=-0.4;
     double KpDist=-0.4;
@@ -72,8 +80,8 @@ public class Cmd_PID_Align extends CommandBase {
     SmartDashboard.putNumber("disajust", distanceAjust);
     
 
-    rotationError=yawValue;
-    distanceError=pitchValue;
+    rotationError=newYawValue;
+    distanceError=newPitchValue;
 
           
           if(rotationError>angleTolerance){

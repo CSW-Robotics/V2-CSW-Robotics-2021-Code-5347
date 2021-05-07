@@ -17,6 +17,8 @@ public class Sub_NetworkTables extends SubsystemBase {
   public NetworkTableEntry yaw;
   public NetworkTableInstance Visiontable;
   public NetworkTableEntry pitch;
+  public double p_pitch;
+  public double p_yaw;
 
   public Sub_NetworkTables() {
 
@@ -28,6 +30,7 @@ public class Sub_NetworkTables extends SubsystemBase {
     NetworkTableEntry yaw = table.getEntry("targetYaw");
     NetworkTableEntry pitch = table.getEntry("targetPitch");
   }
+  /*
   public double Yaw(){
     double d_yaw;
     NetworkTableInstance Visiontable = NetworkTableInstance.getDefault();
@@ -47,19 +50,19 @@ public class Sub_NetworkTables extends SubsystemBase {
     SmartDashboard.putNumber("ptch", d_pitch);
     return d_pitch;
   }
-
-
+  */
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double p_pitch;
+    
     NetworkTableInstance Visiontable1 = NetworkTableInstance.getDefault();
     NetworkTable table1 = Visiontable1.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
     pitch = table1.getEntry("targetPitch");
     p_pitch = pitch.getDouble(0.0);
     SmartDashboard.putNumber("pitchPeriodic", p_pitch);
 
-    double p_yaw;
+    
     NetworkTableInstance Visiontable2 = NetworkTableInstance.getDefault();
     NetworkTable table2 = Visiontable2.getTable("chameleon-vision").getSubTable("Microsoft LifeCam HD-3000");
     yaw = table2.getEntry("targetYaw");
