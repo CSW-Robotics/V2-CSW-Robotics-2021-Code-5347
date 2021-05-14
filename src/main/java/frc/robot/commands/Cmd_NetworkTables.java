@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Sub_NetworkTables;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Cmd_NetworkTables extends CommandBase {
 
@@ -29,7 +30,15 @@ public class Cmd_NetworkTables extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+  double pitchValue = m_NetworkTables.p_pitch;
+  double yawvalue = m_NetworkTables.p_yaw;
+
+  SmartDashboard.putNumber("CMD_Networktables_Pitch", pitchValue);
+  SmartDashboard.putNumber("CMD_Networktables_Yaw", yawvalue);
+
+
+  }
 
   // Called once the command ends or is interrupted.
   @Override
